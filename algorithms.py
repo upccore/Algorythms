@@ -1,4 +1,4 @@
-#Бинарный поиск (O(log n))
+#Бинарный поиск O(log n)
 def binarySearch(list, item):
     low = 0
     high = len(list) - 1
@@ -20,7 +20,7 @@ print(binarySearch(my_list, 7))
 print(binarySearch(my_list, 2))
 
 
-#Сортировка выбором (O(n2))
+#Сортировка выбором O(n2)
 def findSmallest(array):
     smallest = array[0]
     smallest_index = 0
@@ -38,3 +38,16 @@ def selectionSort(array):
     return new_array
 
 print(selectionSort([5, 3, 6, 2, 10]))
+
+
+#Быстрая сортировка n log n
+def quickSort(array):
+    if len(array) < 2:
+        return array
+    else:
+        element = array[0]
+        less = [i for i in array[1:] if i <= element]
+        greater = [i for i in array[1:] if i > element]
+    return quickSort(less) + [element] + quickSort(greater)
+
+print(quickSort([10, 5, 2, 3]))
